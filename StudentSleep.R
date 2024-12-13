@@ -59,14 +59,3 @@ ggplot(
   theme_light()
 #creates a visualization that depicts how sleep duration and physical activity vary between underclassmen and upperclassmen
 
-#Research question 3:
-#looks to see if there is a correlation between physical activity and sleep duration between students of each year of university
-ggplot(CleanedSleepData) +
-  aes(
-    x = Physical_Activity,
-    y = Sleep_Duration,
-    colour = University_Year
-  ) +
-  geom_point() +
-  scale_color_hue(direction = 1) +
-  theme_minimal()
