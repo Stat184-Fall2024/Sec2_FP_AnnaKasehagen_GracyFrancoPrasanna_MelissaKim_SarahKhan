@@ -32,5 +32,9 @@ ggplot(CleanedSleepData) +\
   ) +\
   geom_point() +\
   scale_color_hue(direction = 1) +\
-  theme_minimal()\
+  theme_minimal() + \
+  labs(\
+  x = "Physical Activity (minutes)",\
+  y = "Sleep Duration (hours)",\
+  title = "Physical Activity vs. Sleep Duration")\
 }
