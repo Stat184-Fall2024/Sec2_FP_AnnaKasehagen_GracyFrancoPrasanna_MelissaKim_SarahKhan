@@ -1,28 +1,26 @@
-------------------------------------------------------------------------
-
 ```{yaml}
 ---
 title: "Student Sleep Patterns"
-subtite: Stat 184 Sec 2
-authors: Anna Kasehagen, Gracy Franco Prasanna, Melissa Kim, Sarah Kahn
-date: Dec. 13, 2024
+subtitle: "Stat 184 Sec 2"
+author: "Anna Kasehagen, Gracy Franco Prasanna, Melissa Kim, Sarah Khan"
+date: "Dec. 13, 2024"
 date-modified: now
 format:
   pdf:
-    toc: false
-    number-sections: true
-    number-depth: true
+    toc: FALSE
+    number-sections: TRUE
+    number-depth: 5
     fig-align: center
     cap-location: top
     geometry:
       - top=1in
       - left=1in
       - right=1in
-      - botton=1in
-    colorlinks: true
+      - bottom=1in
+    colorlinks: TRUE
 execute:
-  echo: false
-  warning: true
+  echo: FALSE
+  warning: TRUE
 ---
 ```
 
@@ -32,33 +30,64 @@ What to include in this section: Describe the provenance of your data. That is, 
 
 # Data Exploration and Research Questions
 
+maybe here we can put a portion of the table of the cleaned data? idk just an idea
+
 ## Research Question 1
-
-```{yaml}
-
-```
 
 ## Research Question 2
 
 After analyzing how sleep duration and physical activity vary by university years, we wanted to see how given two of the attributes for a particular student, how the third would be affected. More specifically, the question we are trying to answer is:
 
-Given the class group of a student (underclassmen or upperclassmen) and their sleep duration, how do their reported levels of physical activity vary?
+-   Given the class group of a student (underclassmen or upperclassmen) and their sleep duration, how do their reported levels of physical activity vary?
 
-```{yaml}
+To best visualize this relationship, we thought that a line graph would work best, and in that way we would be able to see the trend between the two classes with duration of sleep spanning from 4 to 9 hours. The graph below demonstrates this relationship. Some things to keep in mind are that the x axis, sleep duration, is measured in hours, while the y axis, physical activity levels, are measured in minutes, and underclassmen are represented by the pink line and upperclassmen are represented by the blue line. The gray bubbles around the lines represent the confidence intervals, but for our analysis we just focused on the average lines themselves.
 
+```{r}
+#| label: SleepActivityLineGraph
+#| fig-cap: "How Physical Activity Levels vary with Sleep Duration and Class Group"
+#| fig-pos: H
+#| fig-height: 5
+#| fig-alt: "Line graph showing varying physical activity levels over lengths of sleep duration"
+#| aria-describedby: namesPlotLD
+#| lst-label: lst-figure2
+#| lst-cap: "Code Chunk for Making Figure 2"
+
+# Make Data Visualization ----
+ggplot(
+  data = Q2SleepData,
+  mapping = aes(
+    x = Sleep_Duration,
+    y = Physical_Activity,
+    colour = University_Year
+   )
+  ) +
+  geom_smooth(se = TRUE) +
+  scale_color_manual(
+    values = c(Underclassmen = "#F725DF",
+               Upperclassmen = "#3538DC")
+  ) +
+  labs(
+    x = "Sleep Duration (hours)",
+    y = "Physical Activity (mins)",
+    title = "Sleep Duration x Physical Activity x Class",
+    color = "Class"
+  ) +
+  theme_light()
 ```
+
+From this graph, there were a few things we noticed and found interesting:
+
+-   The first is how the trends for upperclassmen and underclassmen seem to be inverted. That is, how at a given hour for sleep duration, the physical activity of one group goes up while the other goes down, or vice versa.
+
+-   Second, if we look at where the lines cross the 8 hour mark (we chose 8 because it is right in the middle of the recommended amount of sleep a person should get every night (7-9)) we can see a big gap between the recorded minutes of physical activity and underclassman might get (just above 55) versus an upperclassman (just above 65).
+
+-   The third interesting takeaway from looking at this graph is how we could visually see at what point of sleep duration do upperclassmen and underclassmen hit their maximum physical activity levels. We see that for underclassmen it is at 4 hours whereas for upperclassmen it is at about 7.5/8 hours.
+
+After considering these takeaways, we made some inferences about what might have influenced these sleep patterns and activity levels between classes. The jump between physical activity levels at certain hours and the difference between where the groups reached their maximum levels of sleep duration could be attributed to a difference in time management skills. As students reach their 3rd and 4th years, they typically have figured out a schedule that allows them to balance getting good sleep while maintaining an active lifestyle. This trend could also be attributed to how upperclassmen might have learned the value of maintaining their physical health, while underclassmen might be spreading themselves thin since they have just entered a new environment.
 
 ## Research Question 3
 
-```{yaml}
-
-```
-
 ## Research Question 4
-
-```{yaml}
-
-```
 
 # Conclusion
 
@@ -66,8 +95,5 @@ Given the class group of a student (underclassmen or upperclassmen) and their sl
 
 # Code Appendix
 
-```{yaml}
-      ```{r codeAppend, ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+```{r codeAppend, ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
 ```
-
-\`\`\`
