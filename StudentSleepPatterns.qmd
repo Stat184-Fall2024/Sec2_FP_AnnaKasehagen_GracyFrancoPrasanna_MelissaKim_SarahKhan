@@ -28,7 +28,9 @@ execute:
 
 Understanding student sleep patterns and their relationship to physical activity is crucial for improving student wellbeing and academic performance. Sleep is an essential component of student health, yet it is often disrupted by the demands of college life. In this report, we explore various factors that may affect student sleep habits and focus on potential differences across university years, physical activity levels, and the interaction between these two variables.
 
-The data used is synthetically generated, meaning it was artificially created and does not represent real individuals. Although this synthetic data does not reflect real-world variance, it was intentionally designed to follow realistic distributions and relationships. This allows us to extract meaningful insights while still maintaining the benefits of controlled, consistent data patterns. It is worthy to note that real data may show more variability due to factors like randomness, self-reporting biases, and external influences on sleep and activity. However, while the analysis and conclusions based on this synthetic data provide valuable insights, caution should be taken when assuming that these findings directly apply to real-world data.
+The data from Kaggle[^1] used is synthetically generated, meaning it was artificially created and does not represent real individuals. Although this synthetic data does not reflect real-world variance, it was intentionally designed to follow realistic distributions and relationships. This allows us to extract meaningful insights while still maintaining the benefits of controlled, consistent data patterns. It is worthy to note that real data may show more variability due to factors like randomness, self-reporting biases, and external influences on sleep and activity. However, while the analysis and conclusions based on this synthetic data provide valuable insights, caution should be taken when assuming that these findings directly apply to real-world data.
+
+[^1]: jamal, A. (2024, October 14). Student sleep patterns. Kaggle. https://www.kaggle.com/datasets/arsalanjamal002/student-sleep-patterns
 
 The data focuses on several key research questions. The cases in this dataset represent hypothetical university students, with synthetic data on their sleep duration and physical activity levels. The main research questions explored are:
 1.) How does sleep duration vary across the 4 university years? Similarly, how does physical activity vary across these years?
@@ -237,11 +239,6 @@ From this visualization, we were able to gain a few key insights:
 ## Research Question 4
 
 # Conclusion
-
-# References
-This is the citation for the dataset[^1]
-
-[^1]: jamal, A. (2024, October 14). Student sleep patterns. Kaggle. https://www.kaggle.com/datasets/arsalanjamal002/student-sleep-patterns
 
 # Code Appendix
 
