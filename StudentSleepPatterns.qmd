@@ -72,7 +72,17 @@ The bar graph of average sleep duration by university year (Figure 1) reveals a 
 
 Figure 1: Bar Graph of Average Sleep Duration by University Year
 ```{r echo=FALSE}
-library(ggplot2)
+#| label: SleepDurationByYear
+#| fig-cap: "Average Sleep Duration by University Year"
+#| fig-pos: H
+#| fig-height: 5
+#| fig-width: 7
+#| fig-alt: "Bar graph showing average sleep duration by university year"
+#| aria-describedby: namesPlotLD
+#| lst-label: lst-figure2
+#| lst-cap: "Code Chunk for Making Figure 1"
+
+# Plot code for sleep duration by university year
 averages_with_ci <- averages %>%
   left_join(conf_intervals, by = "University_Year")
 
@@ -89,10 +99,19 @@ In contrast, the bar graph for average physical activity (Figure 2) shows an opp
 
 Figure 2: Bar Graph of Average Physical Activity Level by University Year
 ```{r echo=FALSE}
-library(ggplot2)
+#| label: PhysicalActivityByYear
+#| fig-cap: "Average Physical Activity by University Year"
+#| fig-pos: H
+#| fig-height: 5
+#| fig-width: 7
+#| fig-alt: "Bar graph showing average physical activity by university year"
+#| aria-describedby: namesPlotLD
+#| lst-label: lst-figure3
+#| lst-cap: "Code Chunk for Making Figure 2"
+
+# Plot code for physical activity by university year
 averages_with_ci <- averages %>%
   left_join(conf_intervals, by = "University_Year")
-
 ggplot(averages_with_ci, aes(x = University_Year, y = avg_physical_activity)) +
   geom_bar(stat = "identity", fill = "lightgreen", width = 0.7) +
   geom_errorbar(aes(
