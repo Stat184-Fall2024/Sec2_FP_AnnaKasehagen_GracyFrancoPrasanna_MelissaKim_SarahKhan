@@ -92,6 +92,21 @@ Figure 1: Bar Graph of Average Sleep Duration by University Year
 #| lst-label: lst-figure2
 #| lst-cap: "Code Chunk for Making Figure 1"
 
+#loading necessary packages
+library(tidyr)
+library(dplyr)
+library(rvest)
+library(googlesheets4)
+library(ggplot2)
+library(esquisse)
+# loading data
+sleepData <- read_sheet("https://docs.google.com/spreadsheets/d/1BszLI2k3ti0AzKrY6msUY5lqblDG-6gQRZBEJUIj5i8/edit?usp=sharing")
+
+#selects just the columns applicable for our research questions
+CleanedSleepData <- sleepData %>%
+  select(4, 5, 9) %>%
+  na.omit() #checks for and ignores any values that have NA
+
 # Plot code for sleep duration by university year
 averages_with_ci <- averages %>%
   left_join(conf_intervals, by = "University_Year")
@@ -118,6 +133,16 @@ Figure 2: Bar Graph of Average Physical Activity Level by University Year
 #| aria-describedby: namesPlotLD
 #| lst-label: lst-figure3
 #| lst-cap: "Code Chunk for Making Figure 2"
+
+#loading necessary packages
+library(tidyr)
+library(dplyr)
+library(rvest)
+library(googlesheets4)
+library(ggplot2)
+library(esquisse)
+# loading data
+sleepData <- read_sheet("https://docs.google.com/spreadsheets/d/1BszLI2k3ti0AzKrY6msUY5lqblDG-6gQRZBEJUIj5i8/edit?usp=sharing")
 
 # Plot code for physical activity by university year
 averages_with_ci <- averages %>%
