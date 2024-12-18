@@ -63,6 +63,7 @@ To begin our analysis, we examine the first research question: How does sleep du
 The bar graph of average sleep duration by university year (Figure 1) reveals a gradual decline in sleep as students advance through their studies. First-year students report the highest average sleep duration, approximately 6.5 hours, while fourth-year students report slightly less, averaging just over 6 hours. The error bars for each year are relatively narrow, indicating consistent sleep patterns within each group. This decrease may be attributed to increasing academic demands, extracurricular commitments, or stressors commonly associated with higher years of study. Despite the modest decline, the results suggest that sleep duration remains relatively stable across all years, with no drastic reductions observed.
 
 Figure 1: Bar Graph of Average Sleep Duration by University Year
+
 ```{r echo=FALSE}
 #| label: SleepDurationByYear
 #| fig-cap: "Average Sleep Duration by University Year"
@@ -129,9 +130,11 @@ ggplot(averages_with_ci, aes(x = University_Year, y = avg_sleep_duration)) +
   labs(title = "Average Sleep Duration by University Year", y = "Average Sleep Duration (hours)", x = "University Year") +
   theme_minimal()
 ```
+
 In contrast, the bar graph for average physical activity (Figure 2) shows an opposite trend, with activity levels increasing as students progress through university. First-year students demonstrate the lowest levels of physical activity, averaging a little under 60 units, whereas fourth-year students report the highest levels, nearing 65 units. The error bars for physical activity are noticeably wider, particularly in the first two years, suggesting greater variability in exercise habits among younger students. This variability may stem from differences in schedules, personal habits, or adaptation to university life. By the later years, physical activity appears to stabilize, with upperclassmen engaging in more consistent and higher levels of activity. This trend may reflect a growing awareness of health and wellbeing or improved time management skills among older students.
 
 Figure 2: Bar Graph of Average Physical Activity Level by University Year
+
 ```{r echo=FALSE}
 #| label: PhysicalActivityByYear
 #| fig-cap: "Average Physical Activity by University Year"
@@ -198,6 +201,7 @@ ggplot(averages_with_ci, aes(x = University_Year, y = avg_physical_activity)) +
   labs(title = "Average Physical Activity by University Year", y = "Average Physical Activity (units)", x = "University Year") +
   theme_minimal()
 ```
+
 Together, these graphs highlight a subtle but interesting shift in student behavior over their university years. As sleep duration decreases slightly, physical activity tends to increase, indicating a potential shift in priorities or coping mechanisms. While the synthetic nature of the data ensures controlled patterns, these results align with the common narrative that upperclassmen, despite facing greater academic pressures, may adopt healthier habits such as increased physical activity to manage stress and maintain balance.
 
 ## Research Question 2
@@ -218,20 +222,6 @@ To best visualize this relationship, we thought that a line graph would work bes
 #| aria-describedby: namesPlotLD
 #| lst-label: lst-figure2
 #| lst-cap: "Code Chunk for Making Figure 2"
-#loading necessary packages
-library(tidyr)
-library(dplyr)
-library(rvest)
-library(googlesheets4)
-library(ggplot2)
-library(esquisse)
-# loading data
-sleepData <- read_sheet("https://docs.google.com/spreadsheets/d/1BszLI2k3ti0AzKrY6msUY5lqblDG-6gQRZBEJUIj5i8/edit?usp=sharing")
-
-#cleaning the data and keeping only what is applicable
-CleanedSleepData <- sleepData %>%
-  select(4, 5, 9) %>%
-  na.omit()
 
 Q2SleepData <- CleanedSleepData %>% 
   mutate(
@@ -289,26 +279,12 @@ To best analyze this, we created a dot plot to show the distribution of students
 #| label: PhysicalActivityvsSleepDuration
 #| fig-cap: "The Correlation between Physical Activity and Sleep Duration Across All Student Years "
 #| fig-pos: H
-#| fig-height: 5
+#| fig-height: 4
 #| fig-width: 7
 #| fig-alt: "Dot plot showing the correlation between physical activity and sleep duration across all student years"
 #| aria-describedby: namesPlotLD
 #| lst-label: lst-figure2
 #| lst-cap: "Code Chunk for Making Figure 3"
-#loading necessary packages
-library(tidyr)
-library(dplyr)
-library(rvest)
-library(googlesheets4)
-library(ggplot2)
-library(esquisse)
-# loading data
-sleepData <- read_sheet("https://docs.google.com/spreadsheets/d/1BszLI2k3ti0AzKrY6msUY5lqblDG-6gQRZBEJUIj5i8/edit?usp=sharing")
-
-#selects just the columns applicable for our research questions
-CleanedSleepData <- sleepData %>%
-  select(4, 5, 9) %>%
-  na.omit() #checks for and ignores any values that have NA
 
 # Make Data Visualization ----
 ggplot(CleanedSleepData) +
