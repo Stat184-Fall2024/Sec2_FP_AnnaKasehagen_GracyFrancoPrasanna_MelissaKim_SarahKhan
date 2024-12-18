@@ -136,6 +136,55 @@ From this graph, there were a few things we noticed and found interesting:
 After considering these takeaways, we made some inferences about what might have influenced these sleep patterns and activity levels between classes. The jump between physical activity levels at certain hours and the difference between where the groups reached their maximum levels of sleep duration could be attributed to a difference in time management skills. As students reach their 3rd and 4th years, they typically have figured out a schedule that allows them to balance getting good sleep while maintaining an active lifestyle. This trend could also be attributed to how upperclassmen might have learned the value of maintaining their physical health, while underclassmen might be spreading themselves thin since they have just entered a new environment.
 
 ## Research Question 3
+We wanted to create a whollistic analysis regarding the correlation of physical activity and students' sleep duration, regardless of student year. To find this, we proposed the following research question:
+-    Is there a significant interaction between physical activity and sleep duration?
+
+To best analyze this, we created a dot plot to show the distribution of students' physical activity in minutes(the independent variable found on the 'x' axis) and students' sleep duration in hours (the dependent variable found on the 'y' axis). Each dot will also be one of four colors, each color representing a university year: red for first years, blue for second years, green for third years, and purple for fourth years. This information can also be found in the key of the data visualization below. 
+
+```{r echo=FALSE}
+#| label: PhysicalActivityvsSleepDuration
+#| fig-cap: "The Correlation between Physical Activity and Sleep Duration Across All Student Years "
+#| fig-pos: H
+#| fig-height: 5
+#| fig-width: 7
+#| fig-alt: "Dot plot showing the correlation between physical activity and sleep duration across all student years"
+#| aria-describedby: namesPlotLD
+#| lst-label: lst-figure2
+#| lst-cap: "Code Chunk for Making Figure 3"
+#loading necessary packages
+library(tidyr)
+library(dplyr)
+library(rvest)
+library(googlesheets4)
+library(ggplot2)
+library(esquisse)
+# loading data
+sleepData <- read_sheet("https://docs.google.com/spreadsheets/d/1BszLI2k3ti0AzKrY6msUY5lqblDG-6gQRZBEJUIj5i8/edit?usp=sharing")
+
+#selects just the columns applicable for our research questions
+CleanedSleepData <- sleepData %>%
+  select(4, 5, 9) %>%
+  na.omit() #checks for and ignores any values that have NA
+
+# Make Data Visualization ----
+ggplot(CleanedSleepData) +
+  aes(
+    x = Physical_Activity,
+    y = Sleep_Duration,
+    colour = University_Year
+  ) +
+  geom_point() +
+  scale_color_hue(direction = 1) +
+  theme_minimal() + 
+  labs(
+    x = "Physical Activity (minutes)",
+    y = "Sleep Duration (hours)",
+    title = "Physical Activity vs. Sleep Duration")
+```
+From this visualization, we were able to gain a few key insights:
+
+-    There seems to be no significant correlation between students' physical activity and sleep duration. This could be due to a number of confounding factors -such as class schedule, workload, major, personal events, lifestyle choices- that are not accounted for within the dataset, nor within the attributes that we are specifically analyzing.
+-    In addition, this could also be due to the synthetic nature of the dataset we are analyzing, which, even if it draws from existing measured attributes of sleep duration and physcial activity, might not be a perfect represenation of these variables, and may thus skew our findings and their applicability to real-world scenarios.
 
 ## Research Question 4
 
