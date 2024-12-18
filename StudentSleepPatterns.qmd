@@ -62,24 +62,6 @@ To begin our analysis, we examine the first research question: How does sleep du
 
 The bar graph of average sleep duration by university year (Figure 1) reveals a gradual decline in sleep as students advance through their studies. First-year students report the highest average sleep duration, approximately 6.5 hours, while fourth-year students report slightly less, averaging just over 6 hours. The error bars for each year are relatively narrow, indicating consistent sleep patterns within each group. This decrease may be attributed to increasing academic demands, extracurricular commitments, or stressors commonly associated with higher years of study. Despite the modest decline, the results suggest that sleep duration remains relatively stable across all years, with no drastic reductions observed.
 
-<<<<<<< HEAD
-Figure 1: Bar Graph of Average Sleep Duration by University Year \# Load ggplot2 package library(ggplot2)
-
-# Join the averages with the confidence intervals to add the confidence interval values
-
-averages_with_ci \<- averages %\>% left_join(conf_intervals, by = "University_Year")
-
-# Now plot with the confidence intervals
-
-# Bar plot for Sleep Duration
-
-ggplot(averages_with_ci, aes(x = University_Year, y = avg_sleep_duration)) + geom_bar(stat = "identity", fill = "skyblue", width = 0.7) + geom_errorbar(aes( ymin = avg_sleep_duration - (sleep_duration_ci\[\[1\]\]\[2\] - sleep_duration_ci\[\[1\]\]\[1\]) / 2, ymax = avg_sleep_duration + (sleep_duration_ci\[\[1\]\]\[2\] - sleep_duration_ci\[\[1\]\]\[1\]) / 2 ), width = 0.25) + labs(title = "Average Sleep Duration by University Year", y = "Average Sleep Duration (hours)", x = "University Year") + theme_minimal()
-
-In contrast, the bar graph for average physical activity (Figure 2) shows an opposite trend, with activity levels increasing as students progress through university. First-year students demonstrate the lowest levels of physical activity, averaging a little under 60 units, whereas fourth-year students report the highest levels, nearing 65 units. The error bars for physical activity are noticeably wider, particularly in the first two years, suggesting greater variability in exercise habits among younger students. This variability may stem from differences in schedules, personal habits, or adaptation to university life. By the later years, physical activity appears to stabilize, with upperclassmen engaging in more consistent and higher levels of activity. This trend may reflect a growing awareness of health and wellbeing or improved time management skills among older students.
-
-Figure 2: Bar Graph of Average Physical Activity Level by University Year \# Bar plot for Physical Activity ggplot(averages_with_ci, aes(x = University_Year, y = avg_physical_activity)) + geom_bar(stat = "identity", fill = "lightgreen", width = 0.7) + geom_errorbar(aes( ymin = avg_physical_activity - (physical_activity_ci\[\[1\]\]\[2\] - physical_activity_ci\[\[1\]\]\[1\]) / 2, ymax = avg_physical_activity + (physical_activity_ci\[\[1\]\]\[2\] - physical_activity_ci\[\[1\]\]\[1\]) / 2 ), width = 0.25) + labs(title = "Average Physical Activity by University Year", y = "Average Physical Activity (units)", x = "University Year") + theme_minimal()
-
-=======
 Figure 1: Bar Graph of Average Sleep Duration by University Year
 ```{r echo=FALSE}
 #| label: SleepDurationByYear
@@ -156,7 +138,6 @@ ggplot(averages_with_ci, aes(x = University_Year, y = avg_physical_activity)) +
   labs(title = "Average Physical Activity by University Year", y = "Average Physical Activity (units)", x = "University Year") +
   theme_minimal()
 ```
->>>>>>> e9f59b9c30c14e9be293b1115c0ee45f20179914
 Together, these graphs highlight a subtle but interesting shift in student behavior over their university years. As sleep duration decreases slightly, physical activity tends to increase, indicating a potential shift in priorities or coping mechanisms. While the synthetic nature of the data ensures controlled patterns, these results align with the common narrative that upperclassmen, despite facing greater academic pressures, may adopt healthier habits such as increased physical activity to manage stress and maintain balance.
 
 ## Research Question 2
