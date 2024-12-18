@@ -32,79 +32,53 @@ The data from Kaggle[^1] used is synthetically generated, meaning it was artific
 
 [^1]: jamal, A. (2024, October 14). Student sleep patterns. Kaggle. https://www.kaggle.com/datasets/arsalanjamal002/student-sleep-patterns
 
-The data focuses on several key research questions. The cases in this dataset represent hypothetical university students, with synthetic data on their sleep duration and physical activity levels. The main research questions explored are:
-1.) How does sleep duration vary across the 4 university years? Similarly, how does physical activity vary across these years?
-2.) How does sleep duration differ between underclassmen (1st and 2nd years) and upperclassmen (3rd and 4th years)? How do physical activity levels compare between these groups?
-3.) Is there a significant interaction between physical activity and sleep duration?
-4.) What is the 5-number summary of sleep duration for all 4 university years?
+The data focuses on several key research questions. The cases in this dataset represent hypothetical university students, with synthetic data on their sleep duration and physical activity levels. The main research questions explored are: 1.) How does sleep duration vary across the 4 university years? Similarly, how does physical activity vary across these years? 2.) How does sleep duration differ between underclassmen (1st and 2nd years) and upperclassmen (3rd and 4th years)? How do physical activity levels compare between these groups? 3.) Is there a significant interaction between physical activity and sleep duration? 4.) What is the 5-number summary of sleep duration for all 4 university years?
 
 These questions will guide further analysis, aiming to reveal meaningful trends and relationships within the dataset.
-
 
 # FAIR/CARE Principles
 
 Our dataset, titled “Student Sleep Patterns” and created by Arsalan Jamal, meets the FAIR and CARE principles in the following manner:
 
-## FAIR: 
+## FAIR:
 
 Findability: This dataset is findable through the website Kaggle, which is an online platform that allows users to access datasets that can be used for a variety of data science and machine learning purposes. In addition, the name of this dataset is “student_sleep_patterns.csv”, which succinctly describes the contents of the dataset.
 
 Accessibility: Kaggle is a highly accessible open-source platform, as its interface is user-friendly and its datasets are primarily free. Therefore, it provides a low barrier to entry for those interested in using its datasets. As such, this dataset follows similar standards of accessibility. In our project, the data can be accessed through GitHub, which is also an open source platform, and, seeing as the repository is public, highly accessible.
 
-Interoperability: The data is saved in a .csv format, which is widely-supported. In addition, common units are used, such as decimal points rounded to the tenths places. 
+Interoperability: The data is saved in a .csv format, which is widely-supported. In addition, common units are used, such as decimal points rounded to the tenths places.
 
-Reusable: As this data is found through an open-source platform, which contains an extensive description of the data as well as the measurements of the data. In our project, we have created a QUARTO file with an introduction describing the data and our intentions with the data, as well as what we analysed. 
+Reusable: As this data is found through an open-source platform, which contains an extensive description of the data as well as the measurements of the data. In our project, we have created a QUARTO file with an introduction describing the data and our intentions with the data, as well as what we analysed.
 
-## CARE: 
+## CARE:
 
 This dataset is synthetic data, and as such, is neither perfectly reflective of student sleep patterns nor a comprehensive analysis of all the factors that contribute to student sleep patterns. This data, therefore, does not reflect the sleep patterns of any racial or ethnic group in particular, and does not directly draw from the data of Indigenous communities. This data also does not assess confounding factors that could, in a real-world setting, influence Indigenous students’ sleep schedules, such as systemic barriers or cultural practices.
 
 # Data Exploration and Research Questions
 
-What to include in this section: Describe the provenance of your data. That is, where did you get the data, who collected the data, for what purpose, who/what make up the cases. Explain how your data meet the FAIR and/or CARE Principles. Describe what attributes you will focus your analysis on (mention if they are part of your data sets or if you created them out of your data sets)
-
-maybe here we can put a portion of the table of the cleaned data? idk just an idea
-
 ## Research Question 1
+
 To begin our analysis, we examine the first research question: How does sleep duration vary across the four university years, and how does physical activity compare across these same groups? Understanding these trends can provide insight into how student lifestyles evolve throughout their time in university, reflecting changes in academic workload, priorities, and habits.
 
 The bar graph of average sleep duration by university year (Figure 1) reveals a gradual decline in sleep as students advance through their studies. First-year students report the highest average sleep duration, approximately 6.5 hours, while fourth-year students report slightly less, averaging just over 6 hours. The error bars for each year are relatively narrow, indicating consistent sleep patterns within each group. This decrease may be attributed to increasing academic demands, extracurricular commitments, or stressors commonly associated with higher years of study. Despite the modest decline, the results suggest that sleep duration remains relatively stable across all years, with no drastic reductions observed.
 
-Figure 1: Bar Graph of Average Sleep Duration by University Year
-# Load ggplot2 package
-library(ggplot2)
+Figure 1: Bar Graph of Average Sleep Duration by University Year \# Load ggplot2 package library(ggplot2)
 
 # Join the averages with the confidence intervals to add the confidence interval values
-averages_with_ci <- averages %>%
-  left_join(conf_intervals, by = "University_Year")
+
+averages_with_ci \<- averages %\>% left_join(conf_intervals, by = "University_Year")
 
 # Now plot with the confidence intervals
 
 # Bar plot for Sleep Duration
-ggplot(averages_with_ci, aes(x = University_Year, y = avg_sleep_duration)) +
-  geom_bar(stat = "identity", fill = "skyblue", width = 0.7) +
-  geom_errorbar(aes(
-    ymin = avg_sleep_duration - (sleep_duration_ci[[1]][2] - sleep_duration_ci[[1]][1]) / 2,
-    ymax = avg_sleep_duration + (sleep_duration_ci[[1]][2] - sleep_duration_ci[[1]][1]) / 2
-  ), width = 0.25) +
-  labs(title = "Average Sleep Duration by University Year", y = "Average Sleep Duration (hours)", x = "University Year") +
-  theme_minimal()
+
+ggplot(averages_with_ci, aes(x = University_Year, y = avg_sleep_duration)) + geom_bar(stat = "identity", fill = "skyblue", width = 0.7) + geom_errorbar(aes( ymin = avg_sleep_duration - (sleep_duration_ci\[\[1\]\]\[2\] - sleep_duration_ci\[\[1\]\]\[1\]) / 2, ymax = avg_sleep_duration + (sleep_duration_ci\[\[1\]\]\[2\] - sleep_duration_ci\[\[1\]\]\[1\]) / 2 ), width = 0.25) + labs(title = "Average Sleep Duration by University Year", y = "Average Sleep Duration (hours)", x = "University Year") + theme_minimal()
 
 In contrast, the bar graph for average physical activity (Figure 2) shows an opposite trend, with activity levels increasing as students progress through university. First-year students demonstrate the lowest levels of physical activity, averaging a little under 60 units, whereas fourth-year students report the highest levels, nearing 65 units. The error bars for physical activity are noticeably wider, particularly in the first two years, suggesting greater variability in exercise habits among younger students. This variability may stem from differences in schedules, personal habits, or adaptation to university life. By the later years, physical activity appears to stabilize, with upperclassmen engaging in more consistent and higher levels of activity. This trend may reflect a growing awareness of health and wellbeing or improved time management skills among older students.
 
-Figure 2: Bar Graph of Average Physical Activity Level by University Year
-# Bar plot for Physical Activity
-ggplot(averages_with_ci, aes(x = University_Year, y = avg_physical_activity)) +
-  geom_bar(stat = "identity", fill = "lightgreen", width = 0.7) +
-  geom_errorbar(aes(
-    ymin = avg_physical_activity - (physical_activity_ci[[1]][2] - physical_activity_ci[[1]][1]) / 2,
-    ymax = avg_physical_activity + (physical_activity_ci[[1]][2] - physical_activity_ci[[1]][1]) / 2
-  ), width = 0.25) +
-  labs(title = "Average Physical Activity by University Year", y = "Average Physical Activity (units)", x = "University Year") +
-  theme_minimal()
+Figure 2: Bar Graph of Average Physical Activity Level by University Year \# Bar plot for Physical Activity ggplot(averages_with_ci, aes(x = University_Year, y = avg_physical_activity)) + geom_bar(stat = "identity", fill = "lightgreen", width = 0.7) + geom_errorbar(aes( ymin = avg_physical_activity - (physical_activity_ci\[\[1\]\]\[2\] - physical_activity_ci\[\[1\]\]\[1\]) / 2, ymax = avg_physical_activity + (physical_activity_ci\[\[1\]\]\[2\] - physical_activity_ci\[\[1\]\]\[1\]) / 2 ), width = 0.25) + labs(title = "Average Physical Activity by University Year", y = "Average Physical Activity (units)", x = "University Year") + theme_minimal()
 
 Together, these graphs highlight a subtle but interesting shift in student behavior over their university years. As sleep duration decreases slightly, physical activity tends to increase, indicating a potential shift in priorities or coping mechanisms. While the synthetic nature of the data ensures controlled patterns, these results align with the common narrative that upperclassmen, despite facing greater academic pressures, may adopt healthier habits such as increased physical activity to manage stress and maintain balance.
-
 
 ## Research Question 2
 
@@ -186,10 +160,10 @@ From this graph, there were a few things we noticed and found interesting:
 After considering these takeaways, we made some inferences about what might have influenced these sleep patterns and activity levels between classes. The jump between physical activity levels at certain hours and the difference between where the groups reached their maximum levels of sleep duration could be attributed to a difference in time management skills. As students reach their 3rd and 4th years, they typically have figured out a schedule that allows them to balance getting good sleep while maintaining an active lifestyle. This trend could also be attributed to how upperclassmen might have learned the value of maintaining their physical health, while underclassmen might be spreading themselves thin since they have just entered a new environment.
 
 ## Research Question 3
-We wanted to create a whollistic analysis regarding the correlation of physical activity and students' sleep duration, regardless of student year. To find this, we proposed the following research question:
--    Is there a significant interaction between physical activity and sleep duration?
 
-To best analyze this, we created a dot plot to show the distribution of students' physical activity in minutes(the independent variable found on the 'x' axis) and students' sleep duration in hours (the dependent variable found on the 'y' axis). Each dot will also be one of four colors, each color representing a university year: red for first years, blue for second years, green for third years, and purple for fourth years. This information can also be found in the key of the data visualization below. 
+We wanted to create a whollistic analysis regarding the correlation of physical activity and students' sleep duration, regardless of student year. To find this, we proposed the following research question: - Is there a significant interaction between physical activity and sleep duration?
+
+To best analyze this, we created a dot plot to show the distribution of students' physical activity in minutes(the independent variable found on the 'x' axis) and students' sleep duration in hours (the dependent variable found on the 'y' axis). Each dot will also be one of four colors, each color representing a university year: red for first years, blue for second years, green for third years, and purple for fourth years. This information can also be found in the key of the data visualization below.
 
 ```{r echo=FALSE}
 #| label: PhysicalActivityvsSleepDuration
@@ -231,10 +205,11 @@ ggplot(CleanedSleepData) +
     y = "Sleep Duration (hours)",
     title = "Physical Activity vs. Sleep Duration")
 ```
+
 From this visualization, we were able to gain a few key insights:
 
--    There seems to be no significant correlation between students' physical activity and sleep duration. This could be due to a number of confounding factors -such as class schedule, workload, major, personal events, lifestyle choices- that are not accounted for within the dataset, nor within the attributes that we are specifically analyzing.
--    In addition, this could also be due to the synthetic nature of the dataset we are analyzing, which, even if it draws from existing measured attributes of sleep duration and physcial activity, might not be a perfect represenation of these variables, and may thus skew our findings and their applicability to real-world scenarios.
+-   There seems to be no significant correlation between students' physical activity and sleep duration. This could be due to a number of confounding factors -such as class schedule, workload, major, personal events, lifestyle choices- that are not accounted for within the dataset, nor within the attributes that we are specifically analyzing.
+-   In addition, this could also be due to the synthetic nature of the dataset we are analyzing, which, even if it draws from existing measured attributes of sleep duration and physcial activity, might not be a perfect represenation of these variables, and may thus skew our findings and their applicability to real-world scenarios.
 
 ## Research Question 4
 
