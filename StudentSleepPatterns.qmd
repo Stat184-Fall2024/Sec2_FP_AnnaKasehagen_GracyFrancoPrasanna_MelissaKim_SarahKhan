@@ -30,6 +30,24 @@ This is the citation for the dataset[^1]
 
 [^1]: jamal, A. (2024, October 14). Student sleep patterns. Kaggle. https://www.kaggle.com/datasets/arsalanjamal002/student-sleep-patterns
 
+# FAIR/CARE Principles
+
+Our dataset, titled “Student Sleep Patterns” and created by Arsalan Jamal, meets the FAIR and CARE principles in the following manner:
+
+## FAIR: 
+
+Findability: This dataset is findable through the website Kaggle, which is an online platform that allows users to access datasets that can be used for a variety of data science and machine learning purposes. In addition, the name of this dataset is “student_sleep_patterns.csv”, which succinctly describes the contents of the dataset.
+
+Accessibility: Kaggle is a highly accessible open-source platform, as its interface is user-friendly and its datasets are primarily free. Therefore, it provides a low barrier to entry for those interested in using its datasets. As such, this dataset follows similar standards of accessibility. In our project, the data can be accessed through GitHub, which is also an open source platform, and, seeing as the repository is public, highly accessible.
+
+Interoperability: The data is saved in a .csv format, which is widely-supported. In addition, common units are used, such as decimal points rounded to the tenths places. 
+
+Reusable: As this data is found through an open-source platform, which contains an extensive description of the data as well as the measurements of the data. In our project, we have created a QUARTO file with an introduction describing the data and our intentions with the data, as well as what we analysed. 
+
+## CARE: 
+
+This dataset is synthetic data, and as such, is neither perfectly reflective of student sleep patterns nor a comprehensive analysis of all the factors that contribute to student sleep patterns. This data, therefore, does not reflect the sleep patterns of any racial or ethnic group in particular, and does not directly draw from the data of Indigenous communities. This data also does not assess confounding factors that could, in a real-world setting, influence Indigenous students’ sleep schedules, such as systemic barriers or cultural practices.
+
 # Data Exploration and Research Questions
 
 What to include in this section: Describe the provenance of your data. That is, where did you get the data, who collected the data, for what purpose, who/what make up the cases. Explain how your data meet the FAIR and/or CARE Principles. Describe what attributes you will focus your analysis on (mention if they are part of your data sets or if you created them out of your data sets)
