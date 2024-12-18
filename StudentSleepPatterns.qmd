@@ -81,7 +81,9 @@ library(rvest)
 library(googlesheets4)
 library(ggplot2)
 library(esquisse)
-# loading data
+library(tidyverse)
+
+#reading in the data set
 sleepData <- read_sheet("https://docs.google.com/spreadsheets/d/1BszLI2k3ti0AzKrY6msUY5lqblDG-6gQRZBEJUIj5i8/edit?usp=sharing")
 
 #selects just the columns applicable for our research questions
@@ -89,10 +91,35 @@ CleanedSleepData <- sleepData %>%
   select(4, 5, 9) %>%
   na.omit() #checks for and ignores any values that have NA
 
-# Plot code for sleep duration by university year
+# Group data by University_Year and calculate the average Sleep_Duration and Physical_Activity
+averages <- CleanedSleepData %>%
+  group_by(University_Year) %>%
+  summarise(
+    avg_sleep_duration = mean(Sleep_Duration, na.rm = TRUE),
+    avg_physical_activity = mean(Physical_Activity, na.rm = TRUE)
+  )
+
+# Calculate Confidence Intervals for Sleep Duration and Physical Activity for each University Year
+conf_intervals <- CleanedSleepData %>%
+  group_by(University_Year) %>%
+  summarise(
+    sleep_duration_ci = list(t.test(Sleep_Duration)$conf.int),
+    physical_activity_ci = list(t.test(Physical_Activity)$conf.int)
+  )
+
+# Calculate the percentage change in average sleep duration and physical activity between years
+averages <- averages %>%
+  arrange(University_Year) %>%
+  mutate(
+    sleep_duration_pct_change = c(NA, diff(avg_sleep_duration) / head(avg_sleep_duration, -1) * 100),
+    physical_activity_pct_change = c(NA, diff(avg_physical_activity) / head(avg_physical_activity, -1) * 100)
+  )
+
+# Join the averages with the confidence intervals to add the confidence interval values
 averages_with_ci <- averages %>%
   left_join(conf_intervals, by = "University_Year")
 
+# Bar plot for Sleep Duration
 ggplot(averages_with_ci, aes(x = University_Year, y = avg_sleep_duration)) +
   geom_bar(stat = "identity", fill = "skyblue", width = 0.7) +
   geom_errorbar(aes(
@@ -123,12 +150,45 @@ library(rvest)
 library(googlesheets4)
 library(ggplot2)
 library(esquisse)
-# loading data
+library(tidyverse)
+
+#reading in the data set
 sleepData <- read_sheet("https://docs.google.com/spreadsheets/d/1BszLI2k3ti0AzKrY6msUY5lqblDG-6gQRZBEJUIj5i8/edit?usp=sharing")
 
-# Plot code for physical activity by university year
+#selects just the columns applicable for our research questions
+CleanedSleepData <- sleepData %>%
+  select(4, 5, 9) %>%
+  na.omit() #checks for and ignores any values that have NA
+
+# Group data by University_Year and calculate the average Sleep_Duration and Physical_Activity
+averages <- CleanedSleepData %>%
+  group_by(University_Year) %>%
+  summarise(
+    avg_sleep_duration = mean(Sleep_Duration, na.rm = TRUE),
+    avg_physical_activity = mean(Physical_Activity, na.rm = TRUE)
+  )
+
+# Calculate Confidence Intervals for Sleep Duration and Physical Activity for each University Year
+conf_intervals <- CleanedSleepData %>%
+  group_by(University_Year) %>%
+  summarise(
+    sleep_duration_ci = list(t.test(Sleep_Duration)$conf.int),
+    physical_activity_ci = list(t.test(Physical_Activity)$conf.int)
+  )
+
+# Calculate the percentage change in average sleep duration and physical activity between years
+averages <- averages %>%
+  arrange(University_Year) %>%
+  mutate(
+    sleep_duration_pct_change = c(NA, diff(avg_sleep_duration) / head(avg_sleep_duration, -1) * 100),
+    physical_activity_pct_change = c(NA, diff(avg_physical_activity) / head(avg_physical_activity, -1) * 100)
+  )
+
+# Join the averages with the confidence intervals to add the confidence interval values
 averages_with_ci <- averages %>%
   left_join(conf_intervals, by = "University_Year")
+
+# Bar plot for Physical Activity
 ggplot(averages_with_ci, aes(x = University_Year, y = avg_physical_activity)) +
   geom_bar(stat = "identity", fill = "lightgreen", width = 0.7) +
   geom_errorbar(aes(
