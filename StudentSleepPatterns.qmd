@@ -305,9 +305,27 @@ ggplot(CleanedSleepData) +
 From this visualization, we were able to gain a few key insights:
 
 -   There seems to be no significant correlation between students' physical activity and sleep duration. This could be due to a number of confounding factors -such as class schedule, workload, major, personal events, lifestyle choices- that are not accounted for within the dataset, nor within the attributes that we are specifically analyzing.
--   In addition, this could also be due to the synthetic nature of the dataset we are analyzing, which, even if it draws from existing measured attributes of sleep duration and physcial activity, might not be a perfect represenation of these variables, and may thus skew our findings and their applicability to real-world scenarios.
+-   In addition, this could also be due to the synthetic nature of the dataset we are analyzing, which, even if it draws from existing measured attributes of sleep duration and physical activity, might not be a perfect represenation of these variables, and may thus skew our findings and their applicability to real-world scenarios.
 
 ## Research Question 4
+
+In this final visualization, we are concerned with seeing how two attributes (University Year and Sleep Duration) are related and potentially seeking out any correlations between the two. In the previous visualizations, the focus has primarily been looking at general avergaes across university years or a direct comparison between a group of classes, but here we want to see a statistical summarization to include other measures of central tendency and ranges between the university classes.
+
+-   Is there a trend in sleep duration as students progress through university years (e.g., does it decrease/vary in later years)?
+
+-   What factors might contribute to changes in sleep duration as students advance through their academic journey?
+
+To best visualize this relationship, we thought that a side by side comparision of a box plot with the following five measures: Minimum, Q1, Median, Q3, and Maximum, would be best. Seeing that direct comparison between  The x axis shows the respective year while the Y axis shows the hours. The measures are clearly demarcated by the dark blue outlines, while the light blue highlights where 50% of the data closest to the median lies. This is important to understand where the majority of people lie within the class, and creates way for a more holistic comparision between the multiple university classes. 
+
+A few key insights to take from here: 
+
+ -  The median sleep duration does not vary too much across the years, central tendency is fairly consistent for all university students.
+
+-  For second and third year students, the range is more narrow, so they tend to have more consistency in their sleep patterns. 
+
+-  There are no significant outliers in the dataset, which means ther eis consistnecy amongst most students in their respective cohort
+
+-  The second and third year students likely have stability in their morkloads and schedules, meaning the ranges are narrower. For first or third year students it can be different due to initial adjustments or final years being held to various kinds of workloads due to the nearing of graduation or finding a job
 
 # Conclusion
 
