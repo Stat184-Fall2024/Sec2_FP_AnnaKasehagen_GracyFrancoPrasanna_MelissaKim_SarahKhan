@@ -317,6 +317,33 @@ In this final visualization, we are concerned with seeing how two attributes (Un
 
 To best visualize this relationship, we thought that a side by side comparision of a box plot with the following five measures: Minimum, Q1, Median, Q3, and Maximum, would be best. Seeing that direct comparison between  The x axis shows the respective year while the Y axis shows the hours. The measures are clearly demarcated by the dark blue outlines, while the light blue highlights where 50% of the data closest to the median lies. This is important to understand where the majority of people lie within the class, and creates way for a more holistic comparision between the multiple university classes. 
 
+```{r echo=FALSE}
+# Getting the stats for the five number summary (for each year)
+SleepSummary <- CleanedSleepData %>%
+  group_by(University_Year) %>%
+  summarize(
+    Min = min(Sleep_Duration, na.rm = TRUE),
+    Q1 = quantile(Sleep_Duration, 0.25, na.rm = TRUE),
+    Median = median(Sleep_Duration, na.rm = TRUE),
+    Q3 = quantile(Sleep_Duration, 0.75, na.rm = TRUE),
+    Max = max(Sleep_Duration, na.rm = TRUE)
+  )
+
+# Print the 5-number summary for personal accuracy
+print(SleepSummary)
+
+# Creating the Boxplot visualization for Sleep Duration by University Year
+ggplot(CleanedSleepData, aes(x = factor(University_Year), y = Sleep_Duration)) +
+  geom_boxplot(fill = "lightblue", color = "blue", alpha = 0.7) +
+  labs(
+    title = "5-Number Summary of Sleep Duration by University Year",
+    x = "University Year",
+    y = "Sleep Duration (Hours)"
+  ) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 0.5)) 
+```
+
 A few key insights to take from here: 
 
  -  The median sleep duration does not vary too much across the years, central tendency is fairly consistent for all university students.
