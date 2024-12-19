@@ -210,7 +210,7 @@ After analyzing how sleep duration and physical activity vary by university year
 
 -   Given the class group of a student (underclassmen or upperclassmen) and their sleep duration, how do their reported levels of physical activity vary?
 
-To best visualize this relationship, we thought that a line graph would work best, and that way we would be able to see the trend between the two classes with duration of sleep spanning from 4 to 9 hours. The graph below demonstrates this relationship. Some things to keep in mind are that the x axis, sleep duration, is measured in hours, while the y axis, physical activity levels, are measured in minutes, and underclassmen are represented by the pink line and upperclassmen are represented by the blue line. The gray bubbles around the lines represent the confidence intervals, but for our analysis we just focused on the average lines themselves.
+To best visualize this relationship, we thought that a line graph would work best, and that way we would be able to see the trend between the two classes with duration of sleep spanning from 4 to 9 hours. The graph below demonstrates this relationship (see Figure 3). Some things to keep in mind are that the x axis, sleep duration, is measured in hours, while the y axis, physical activity levels, are measured in minutes, and underclassmen are represented by the pink line and upperclassmen are represented by the blue line. The gray bubbles around the lines represent the confidence intervals, but for our analysis we just focused on the average lines themselves.
 
 ```{r echo=FALSE}
 #| label: SleepActivityLineGraph
@@ -274,7 +274,7 @@ After considering these takeaways, we can make inferences about what might have 
 
 We wanted to create a wholistic analysis regarding the correlation of physical activity and students' sleep duration, regardless of student year. To find this, we proposed the following research question: - Is there a significant interaction between physical activity and sleep duration?
 
-To best analyze this, we created a dot plot to show the distribution of students' physical activity in minutes (the independent variable found on the 'x' axis) and students' sleep duration in hours (the dependent variable found on the 'y' axis). Each dot will also be one of four colors, each color representing a university year: red for first years, blue for second years, green for third years, and purple for fourth years. This information can also be found in the key of the data visualization below.
+To best analyze this, we created a dot plot (see Figure 4) to show the distribution of students' physical activity in minutes (the independent variable found on the 'x' axis) and students' sleep duration in hours (the dependent variable found on the 'y' axis). Each dot will also be one of four colors, each color representing a university year: red for first years, blue for second years, green for third years, and purple for fourth years. This information can also be found in the key of the data visualization below.
 
 ```{r echo=FALSE}
 #| label: PhysicalActivityvsSleepDuration
@@ -316,7 +316,7 @@ In this final visualization, we are concerned with seeing how two attributes (Un
 
 -   What factors might contribute to changes in sleep duration as students advance through their academic journey?
 
-To best visualize this relationship, we thought that a side by side comparison of a box plot with the following five measures: Minimum, Q1, Median, Q3, and Maximum, would be best. The x axis holds the university year while the y axis holds sleep duration. The measures are demarcated by the dark blue outlines, while the light blue highlights where 50% of the data closest to the median lies. The box plot is important to understand where the majority of people lie within the class, and allows for a more wholistic comparison between the multiple university classes.
+To best visualize this relationship, we thought that a side by side comparison of a box plot with the following five measures: Minimum, Q1, Median, Q3, and Maximum, would be best (see Table 1). The x axis holds the university year while the y axis holds sleep duration. The measures are demarcated by the dark blue outlines, while the light blue highlights where 50% of the data closest to the median lies. The box plot is important to understand where the majority of people lie within the class, and allows for a more wholistic comparison between the multiple university classes.
 
 ```{r echo=FALSE}
 library(dplyr)
