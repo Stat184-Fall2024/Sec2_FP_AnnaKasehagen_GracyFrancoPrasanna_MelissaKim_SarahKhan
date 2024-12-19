@@ -26,25 +26,25 @@ execute:
 
 # Introduction
 
-Understanding student sleep patterns and their relationship to physical activity is crucial for improving student wellbeing and academic performance. Sleep is an essential component of student health, yet it is often disrupted by the demands of college life. In this report, we explore various factors that may affect student sleep habits and focus on potential differences across university years, physical activity levels, and the interaction between these two variables.
+Understanding student sleep patterns and their relationship to physical activity is crucial for improving student well-being and academic performance. Sleep is an essential component of student health, yet it is often disrupted by the demands of college life. In this report, we explore various factors that may affect student sleep habits, and focus on potential differences across university years, physical activity levels, and the interaction between these two variables.
 
-The data from Kaggle[^1] used is synthetically generated, meaning it was artificially created and does not represent real individuals. Although this synthetic data does not reflect real-world variance, it was intentionally designed to follow realistic distributions and relationships. This allows us to extract meaningful insights while still maintaining the benefits of controlled, consistent data patterns. It is worthy to note that real data may show more variability due to factors like randomness, self-reporting biases, and external influences on sleep and activity. However, while the analysis and conclusions based on this synthetic data provide valuable insights, caution should be taken when assuming that these findings directly apply to real-world data.
+The data, from Kaggle,[^1] is synthetically generated, meaning it was artificially created and does not represent real individuals. Although this synthetic data does not reflect real-world variance, it was intentionally designed to follow realistic distributions and relationships. This allows us to extract meaningful insights while still maintaining the benefits of controlled, consistent data patterns. It is worthy to note that real data may show more variability due to factors like randomness, self-reporting biases, and external influences on sleep and activity. While the analysis and conclusions based on this synthetic data provide valuable insights, caution should be taken when assuming that these findings directly apply to real-world data.
 
-[^1]: jamal, A. (2024, October 14). Student sleep patterns. Kaggle. https://www.kaggle.com/datasets/arsalanjamal002/student-sleep-patterns
+[^1]: jamal, A. (2024, October 14). Student sleep patterns. Kaggle. https://www.kaggle.com/data sets/arsalanjamal002/student-sleep-patterns
 
-The data focuses on several key research questions. The cases in this dataset represent hypothetical university students, with synthetic data on their sleep duration and physical activity levels. The main research questions explored are: 1.) How does sleep duration vary across the 4 university years? Similarly, how does physical activity vary across these years? 2.) How does sleep duration differ between underclassmen (1st and 2nd years) and upperclassmen (3rd and 4th years)? How do physical activity levels compare between these groups? 3.) Is there a significant interaction between physical activity and sleep duration? 4.) What is the 5-number summary of sleep duration for all 4 university years?
+The data focuses on several key research questions. The cases in this data set represent hypothetical university students, with synthetic data on their sleep duration and physical activity levels. The main research questions explored are: 1.) How does sleep duration vary across the 4 university years? Similarly, how does physical activity vary across these years? 2.) How do physical activity levels differ between underclassmen (1st and 2nd years) and upperclassmen (3rd and 4th years) given their sleep duration? 3.) Is there a significant interaction between physical activity and sleep duration? 4.) What is the 5-number summary of sleep duration for all 4 university years?
 
-These questions will guide further analysis, aiming to reveal meaningful trends and relationships within the dataset.
+These questions will guide further analysis, aiming to reveal meaningful trends and relationships within the data set.
 
 # FAIR/CARE Principles
 
-Our dataset, titled “Student Sleep Patterns” and created by Arsalan Jamal, meets the FAIR and CARE principles in the following manner:
+Our data set, titled “Student Sleep Patterns” and created by Arsalan Jamal, meets the FAIR and CARE principles in the following manner:
 
 ## FAIR:
 
-Findability: This dataset is findable through the website Kaggle, which is an online platform that allows users to access datasets that can be used for a variety of data science and machine learning purposes. In addition, the name of this dataset is “student_sleep_patterns.csv”, which succinctly describes the contents of the dataset.
+Findability: This data set is findable through the website Kaggle, which is an online platform that allows users to access data sets that can be used for a variety of data science and machine learning purposes. In addition, the name of this data set is “student_sleep_patterns.csv”, which succinctly describes the contents of the data set.
 
-Accessibility: Kaggle is a highly accessible open-source platform, as its interface is user-friendly and its datasets are primarily free. Therefore, it provides a low barrier to entry for those interested in using its datasets. As such, this dataset follows similar standards of accessibility. In our project, the data can be accessed through GitHub, which is also an open source platform, and, seeing as the repository is public, highly accessible.
+Accessibility: Kaggle is a highly accessible open-source platform, as its interface is user-friendly and its data sets are primarily free. Therefore, it provides a low barrier to entry for those interested in using its data sets. As such, this data set follows similar standards of accessibility. In our project, the data can be accessed through GitHub, which is also an open source platform, and, seeing as the repository is public, highly accessible.
 
 Interoperability: The data is saved in a .csv format, which is widely-supported. In addition, common units are used, such as decimal points rounded to the tenths places.
 
@@ -52,7 +52,7 @@ Reusable: As this data is found through an open-source platform, which contains 
 
 ## CARE:
 
-This dataset is synthetic data, and as such, is neither perfectly reflective of student sleep patterns nor a comprehensive analysis of all the factors that contribute to student sleep patterns. This data, therefore, does not reflect the sleep patterns of any racial or ethnic group in particular, and does not directly draw from the data of Indigenous communities. This data also does not assess confounding factors that could, in a real-world setting, influence Indigenous students’ sleep schedules, such as systemic barriers or cultural practices.
+This data set is synthetic data, and as such, is neither perfectly reflective of student sleep patterns nor a comprehensive analysis of all the factors that contribute to student sleep patterns. This data, therefore, does not reflect the sleep patterns of any racial or ethnic group in particular, and does not directly draw from the data of Indigenous communities. This data also does not assess confounding factors that could, in a real-world setting, influence Indigenous students’ sleep schedules, such as systemic barriers or cultural practices.
 
 # Data Exploration and Research Questions
 
@@ -131,7 +131,7 @@ ggplot(averages_with_ci, aes(x = University_Year, y = avg_sleep_duration)) +
   theme_minimal()
 ```
 
-In contrast, the bar graph for average physical activity (Figure 2) shows an opposite trend, with activity levels increasing as students progress through university. First-year students demonstrate the lowest levels of physical activity, averaging a little under 60 units, whereas fourth-year students report the highest levels, nearing 65 units. The error bars for physical activity are noticeably wider, particularly in the first two years, suggesting greater variability in exercise habits among younger students. This variability may stem from differences in schedules, personal habits, or adaptation to university life. By the later years, physical activity appears to stabilize, with upperclassmen engaging in more consistent and higher levels of activity. This trend may reflect a growing awareness of health and wellbeing or improved time management skills among older students.
+In contrast, the bar graph for average physical activity (Figure 2) shows an opposite trend, with activity levels increasing as students progress through university. First-year students demonstrate the lowest levels of physical activity, averaging a little under 60 minutes, whereas fourth-year students report the highest levels, nearing 65 minutes. The error bars for physical activity are noticeably wider, particularly in the first two years, suggesting greater variability in exercise habits among younger students. This variability may stem from differences in schedules, personal habits, or adaptation to university life. By the later years, physical activity appears to stabilize, with upperclassmen engaging in more consistent and higher levels of activity. This trend may reflect a growing awareness of health and well-being or improved time management skills among older students.
 
 Figure 2: Bar Graph of Average Physical Activity Level by University Year
 
@@ -198,7 +198,7 @@ ggplot(averages_with_ci, aes(x = University_Year, y = avg_physical_activity)) +
     ymin = avg_physical_activity - (physical_activity_ci[[1]][2] - physical_activity_ci[[1]][1]) / 2,
     ymax = avg_physical_activity + (physical_activity_ci[[1]][2] - physical_activity_ci[[1]][1]) / 2
   ), width = 0.25) +
-  labs(title = "Average Physical Activity by University Year", y = "Average Physical Activity (units)", x = "University Year") +
+  labs(title = "Average Physical Activity by University Year", y = "Average Physical Activity (mins)", x = "University Year") +
   theme_minimal()
 ```
 
@@ -210,7 +210,7 @@ After analyzing how sleep duration and physical activity vary by university year
 
 -   Given the class group of a student (underclassmen or upperclassmen) and their sleep duration, how do their reported levels of physical activity vary?
 
-To best visualize this relationship, we thought that a line graph would work best, and in that way we would be able to see the trend between the two classes with duration of sleep spanning from 4 to 9 hours. The graph below demonstrates this relationship. Some things to keep in mind are that the x axis, sleep duration, is measured in hours, while the y axis, physical activity levels, are measured in minutes, and underclassmen are represented by the pink line and upperclassmen are represented by the blue line. The gray bubbles around the lines represent the confidence intervals, but for our analysis we just focused on the average lines themselves.
+To best visualize this relationship, we thought that a line graph would work best, and that way we would be able to see the trend between the two classes with duration of sleep spanning from 4 to 9 hours. The graph below demonstrates this relationship. Some things to keep in mind are that the x axis, sleep duration, is measured in hours, while the y axis, physical activity levels, are measured in minutes, and underclassmen are represented by the pink line and upperclassmen are represented by the blue line. The gray bubbles around the lines represent the confidence intervals, but for our analysis we just focused on the average lines themselves.
 
 ```{r echo=FALSE}
 #| label: SleepActivityLineGraph
@@ -223,6 +223,7 @@ To best visualize this relationship, we thought that a line graph would work bes
 #| lst-label: lst-figure2
 #| lst-cap: "Code Chunk for Making Figure 2"
 
+#changes the names of the columns so that 1st and 2nd years are underclassmen and 3rd and 4th years are upperclassmen
 Q2SleepData <- CleanedSleepData %>% 
   mutate(
     University_Year = case_match(
@@ -261,19 +262,19 @@ From this graph, there were a few things we noticed and found interesting:
 
 -   The first is how the trends for upperclassmen and underclassmen seem to be inverted. That is, how at a given hour for sleep duration, the physical activity of one group goes up while the other goes down, or vice versa.
 
--   Second, if we look at where the lines cross the 8 hour mark (we chose 8 because it is right in the middle of the recommended amount of sleep a person should get every night (7-9)[^2]) we can see a big gap between the recorded minutes of physical activity and underclassman might get (just above 55) versus an upperclassman (just above 65).
+-   Second, if we look at where the lines cross the 8 hour mark (we chose 8 because it is right in the middle of the recommended amount of sleep a person should get every night (7-9)[^2]) we can see a large gap between the recorded minutes of physical activity an underclassman might get (just above 55 mins) versus an upperclassman (just above 65 mins).
 
 -   The third interesting takeaway from looking at this graph is how we could visually see at what point of sleep duration do upperclassmen and underclassmen hit their maximum physical activity levels. We see that for underclassmen it is at 4 hours whereas for upperclassmen it is at about 7.5/8 hours.
 
 [^2]: Assess your sleep needs. Sleep Medicine. (n.d.). https://sleep.hms.harvard.edu/education-training/public-education/sleep-and-health-education-program/sleep-health-education-92#:\~:text=Although%20there%20is%20some%20genetic,sleep%20as%20long%20as%20possible.
 
-After considering these takeaways, we made some inferences about what might have influenced these sleep patterns and activity levels between classes. The jump between physical activity levels at certain hours and the difference between where the groups reached their maximum levels of sleep duration could be attributed to a difference in time management skills. As students reach their 3rd and 4th years, they typically have figured out a schedule that allows them to balance getting good sleep while maintaining an active lifestyle. This trend could also be attributed to how upperclassmen might have learned the value of maintaining their physical health, while underclassmen might be spreading themselves thin since they have just entered a new environment.
+After considering these takeaways, we can make inferences about what might have influenced these sleep patterns and activity levels between classes. The jump between physical activity levels at certain hours and the difference between where the groups reached their maximum levels of sleep duration could be attributed to a difference in time management skills. As students reach their 3rd and 4th years, they typically have figured out a schedule that allows them to balance getting good sleep while maintaining an active lifestyle. This trend could also be attributed to how upperclassmen might have learned the value of maintaining their physical health, while underclassmen might be spreading themselves thin since they have just entered a new environment.
 
 ## Research Question 3
 
-We wanted to create a whollistic analysis regarding the correlation of physical activity and students' sleep duration, regardless of student year. To find this, we proposed the following research question: - Is there a significant interaction between physical activity and sleep duration?
+We wanted to create a wholistic analysis regarding the correlation of physical activity and students' sleep duration, regardless of student year. To find this, we proposed the following research question: - Is there a significant interaction between physical activity and sleep duration?
 
-To best analyze this, we created a dot plot to show the distribution of students' physical activity in minutes(the independent variable found on the 'x' axis) and students' sleep duration in hours (the dependent variable found on the 'y' axis). Each dot will also be one of four colors, each color representing a university year: red for first years, blue for second years, green for third years, and purple for fourth years. This information can also be found in the key of the data visualization below.
+To best analyze this, we created a dot plot to show the distribution of students' physical activity in minutes (the independent variable found on the 'x' axis) and students' sleep duration in hours (the dependent variable found on the 'y' axis). Each dot will also be one of four colors, each color representing a university year: red for first years, blue for second years, green for third years, and purple for fourth years. This information can also be found in the key of the data visualization below.
 
 ```{r echo=FALSE}
 #| label: PhysicalActivityvsSleepDuration
@@ -304,20 +305,22 @@ ggplot(CleanedSleepData) +
 
 From this visualization, we were able to gain a few key insights:
 
--   There seems to be no significant correlation between students' physical activity and sleep duration. This could be due to a number of confounding factors -such as class schedule, workload, major, personal events, lifestyle choices- that are not accounted for within the dataset, nor within the attributes that we are specifically analyzing.
--   In addition, this could also be due to the synthetic nature of the dataset we are analyzing, which, even if it draws from existing measured attributes of sleep duration and physical activity, might not be a perfect represenation of these variables, and may thus skew our findings and their applicability to real-world scenarios.
+-   There seems to be no significant correlation between students' physical activity levels and sleep duration. This could be due to a number of confounding factors -such as class schedule, workload, major, personal events, lifestyle choices- that are not accounted for within the data set.
+-   In addition, this could also be due to the synthetic nature of the data set we are analyzing, which, even if it draws from existing measured attributes of sleep duration and physical activity, might not be a perfect representation of these variables, and may skew our findings and their applicability to real-world scenarios.
 
 ## Research Question 4
 
-In this final visualization, we are concerned with seeing how two attributes (University Year and Sleep Duration) are related and potentially seeking out any correlations between the two. In the previous visualizations, the focus has primarily been looking at general avergaes across university years or a direct comparison between a group of classes, but here we want to see a statistical summarization to include other measures of central tendency and ranges between the university classes.
+In this final visualization, we are concerned with seeing how two attributes (University Year and Sleep Duration) are related and potentially seeking out any correlations between the two. In the previous visualizations, the focus has primarily been looking at general averages across university years or a direct comparison between a group of classes, but here we want to see a statistical summary to include other measures of central tendency and ranges between the university classes.
 
 -   Is there a trend in sleep duration as students progress through university years (e.g., does it decrease/vary in later years)?
 
 -   What factors might contribute to changes in sleep duration as students advance through their academic journey?
 
-To best visualize this relationship, we thought that a side by side comparision of a box plot with the following five measures: Minimum, Q1, Median, Q3, and Maximum, would be best. Seeing that direct comparison between  The x axis shows the respective year while the Y axis shows the hours. The measures are clearly demarcated by the dark blue outlines, while the light blue highlights where 50% of the data closest to the median lies. This is important to understand where the majority of people lie within the class, and creates way for a more holistic comparision between the multiple university classes. 
+To best visualize this relationship, we thought that a side by side comparison of a box plot with the following five measures: Minimum, Q1, Median, Q3, and Maximum, would be best. The x axis holds the university year while the y axis holds sleep duration. The measures are demarcated by the dark blue outlines, while the light blue highlights where 50% of the data closest to the median lies. The box plot is important to understand where the majority of people lie within the class, and allows for a more wholistic comparison between the multiple university classes.
 
 ```{r echo=FALSE}
+library(dplyr)
+library(kableExtra)
 # Getting the stats for the five number summary (for each year)
 SleepSummary <- CleanedSleepData %>%
   group_by(University_Year) %>%
@@ -329,8 +332,19 @@ SleepSummary <- CleanedSleepData %>%
     Max = max(Sleep_Duration, na.rm = TRUE)
   )
 
+#uses kable package to make table easier to read
+SleepSummary %>% kable(
+caption = "Five Number Summary", #adds a caption
+booktabs = TRUE,
+align = c("l", rep("c", 6))
+) %>%
+kableExtra::kable_styling(
+bootstrap_options = c("striped", "condensed"), #stripes and condenses the table for easier readability
+font_size = 16 #assigns a readable font size
+)
+
 # Print the 5-number summary for personal accuracy
-print(SleepSummary)
+#print(SleepSummary)
 
 # Creating the Boxplot visualization for Sleep Duration by University Year
 ggplot(CleanedSleepData, aes(x = factor(University_Year), y = Sleep_Duration)) +
@@ -344,32 +358,31 @@ ggplot(CleanedSleepData, aes(x = factor(University_Year), y = Sleep_Duration)) +
   theme(plot.title = element_text(hjust = 0.5)) 
 ```
 
-A few key insights to take from here: 
+A few key insights to take from here:
 
--  The median sleep duration does not vary too much across the years, central tendency is fairly consistent for all university students.
+-   The median sleep duration does not vary much across the years, central tendency is fairly consistent for all university students.
 
--  For second and third year students, the range is more narrow, so they tend to have more consistency in their sleep patterns. 
+-   For second and third year students, the range is more narrow, so they tend to have more consistency in their sleep patterns compared to first and fourth years.
 
--  There are no significant outliers in the dataset, which means there is consistnecy amongst most students in their respective cohort
+-   There are no significant outliers in the data set, which means there is consistency among most students in their respective cohort.
 
--  The second and third year students likely have stability in their morkloads and schedules, meaning the ranges are narrower. For first or third year students it can be different due to initial adjustments or final years being held to various kinds of workloads due to the nearing of graduation or finding a job
+-   The second and third year students likely have stability in their workloads and schedules, meaning the ranges are narrower. For first or third year students it can be different due to initial adjustments or final years containing a wider variety of workloads due to the nearing of graduation or finding a job.
 
 # Conclusion
 
-In this project, we took into consideration how (synthetic) data to see how a studen'ts sleep patterns are everchanging through the challenging years of college. Our results showed nuanced and intercorrelated insights to both student life, and how it may change and ultimately affect a student's quality of sleep.
+In this project, we took synthetic data into consideration to see how a student's sleep patterns change throughout years of university. Our results showed nuanced and intercorrelated insights to both student life, and how it may change and ultimately affect a student's quality of sleep.
 
 Sleep Patterns
 
-As a student transitions to the next year, we see general decreases in average sleep duration. This gradual decline is likely attributed to greater acacdemic obligations or potentially demanding lfiestyle changes and prioritization. 
+As a student transitions to the next year, we see general decreases in average sleep duration. This gradual decline is likely attributed to greater academic obligations or potentially demanding lifestyle changes and prioritization.
 
 Physical Activity Trends
 
-Physical activity was, interestingly enough, high in upperclassmen than underclassmen. This may indicate a greater sense of time management and school-life balance that comes with experience in college.
+Physical activity was, interestingly enough, higher in upperclassmen than underclassmen. This may indicate a greater sense of time management and school-life balance that comes with experience in college.
 
 Beyond the Numbers
 
-While there is not evidently a strong correlation between sleep and physical activity, our vizualizations and research suggests that individual factors like lifestyle choices, priorities of academia over other things, and intrapersonal skills like time management likely have a more significant impact on the way student's go about their lives.
-It sheds light on how undergraduate students' health behaviors subtly differ throughout their journey in school, emphasizign that the interplay between academic life and personal life is a unique and important balance to strike for overall well-being.
+While there is not evidently a strong correlation between sleep duration and physical activity, our visualizations and research suggests that individual factors like lifestyle choices, priorities of academia over other responsibilites, and intrapersonal skills like time management likely have a more significant impact on the way student's go about their lives. It sheds light on how undergraduate students' health behaviors subtly differ throughout their journey in school, emphasizing that the interplay between academic life and personal life is a unique and important balance to strike for overall well-being.
 
 # Code Appendix
 
