@@ -346,15 +346,30 @@ ggplot(CleanedSleepData, aes(x = factor(University_Year), y = Sleep_Duration)) +
 
 A few key insights to take from here: 
 
- -  The median sleep duration does not vary too much across the years, central tendency is fairly consistent for all university students.
+-  The median sleep duration does not vary too much across the years, central tendency is fairly consistent for all university students.
 
 -  For second and third year students, the range is more narrow, so they tend to have more consistency in their sleep patterns. 
 
--  There are no significant outliers in the dataset, which means ther eis consistnecy amongst most students in their respective cohort
+-  There are no significant outliers in the dataset, which means there is consistnecy amongst most students in their respective cohort
 
 -  The second and third year students likely have stability in their morkloads and schedules, meaning the ranges are narrower. For first or third year students it can be different due to initial adjustments or final years being held to various kinds of workloads due to the nearing of graduation or finding a job
 
 # Conclusion
+
+In this project, we took into consideration how (synthetic) data to see how a studen'ts sleep patterns are everchanging through the challenging years of college. Our results showed nuanced and intercorrelated insights to both student life, and how it may change and ultimately affect a student's quality of sleep.
+
+Sleep Patterns
+
+As a student transitions to the next year, we see general decreases in average sleep duration. This gradual decline is likely attributed to greater acacdemic obligations or potentially demanding lfiestyle changes and prioritization. 
+
+Physical Activity Trends
+
+Physical activity was, interestingly enough, high in upperclassmen than underclassmen. This may indicate a greater sense of time management and school-life balance that comes with experience in college.
+
+Beyond the Numbers
+
+While there is not evidently a strong correlation between sleep and physical activity, our vizualizations and research suggests that individual factors like lifestyle choices, priorities of academia over other things, and intrapersonal skills like time management likely have a more significant impact on the way student's go about their lives.
+It sheds light on how undergraduate students' health behaviors subtly differ throughout their journey in school, emphasizign that the interplay between academic life and personal life is a unique and important balance to strike for overall well-being.
 
 # Code Appendix
 
